@@ -143,7 +143,7 @@ pub trait LanguageServer: Send + Sync + 'static {
     /// This method is guaranteed to only execute once. If the client sends this request to the
     /// server again, the server will respond with JSON-RPC error code `-32600` (invalid request).
     #[rpc(name = "shutdown")]
-    async fn shutdown(&self) -> Result<()>;
+    async fn shutdown(&self) -> Result<u32>;
 
     /// The [`workspace/didChangeWorkspaceFolders`] notification is sent from the client to the
     /// server to inform about workspace folder configuration changes.
